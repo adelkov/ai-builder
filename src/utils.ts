@@ -34,6 +34,11 @@ export function withRateLimit(
   config: RateLimitConfig
 ) {
   return async (session: Session, req: Request) => {
+    // Admin users are exempt from rate limiting
+    if (session.user.isAdmin) {
+      return handler(session, req);
+    }
+
     const key = config.key(session, req);
     const redisKey = `rate_limit:${key}`;
     const currentCount = await redis.incr(redisKey);

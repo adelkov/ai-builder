@@ -8,6 +8,7 @@ export const maxDuration = 30;
 export const POST = withAuth(
   withRateLimit(
     async (session, req) => {
+      
       const { messages } = (await req.json()) as { messages: Message[] };
       const result = streamText({
         model: openai("gpt-4o"),

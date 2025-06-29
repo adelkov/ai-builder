@@ -9,6 +9,7 @@ import {
   users,
   verificationTokens,
 } from "~/server/db/schema";
+import type { DB } from "~/server/db/schema";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -20,8 +21,7 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
-      // ...other properties
-      // role: UserRole;
+      isAdmin: boolean;
     } & DefaultSession["user"];
   }
 
@@ -64,6 +64,7 @@ export const authConfig = {
       user: {
         ...session.user,
         id: user.id,
+        isAdmin: (user as DB.User).isAdmin,
       },
     }),
   },

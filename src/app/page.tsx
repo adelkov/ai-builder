@@ -59,6 +59,13 @@ export default async function HomePage() {
                 : "Sign in to start chatting"}
             </p>
           )}
+          {/* Movie Generator Link */}
+          <Link
+            href="/generate-movie"
+            className="mt-4 block rounded-lg p-3 text-center text-sm font-semibold text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 transition-colors"
+          >
+            🍿 Generate Movie
+          </Link>
         </div>
         <div className="p-4">
           <AuthButton

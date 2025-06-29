@@ -67,7 +67,12 @@ export const ChatPage = ({ userName }: ChatProps) => {
         </div>
       </div>
 
-      <SignInModal isOpen={false} onClose={() => {}} />
+      <SignInModal
+        isOpen={false}
+        onClose={() => {
+          console.log("close");
+        }}
+      />
     </>
   );
 };

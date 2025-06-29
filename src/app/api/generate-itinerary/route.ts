@@ -1,7 +1,7 @@
 import { withAuth } from "../../../utils";
 import { streamObject } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { travelItinerarySchema } from "../../../types";
+import { travelItineraryResponseSchema } from "../../../types";
 
 export const POST = withAuth(async (_session, req) => {
   const { days, budget, origin, preferences }: { days: number; budget: string; origin: string; preferences: string } = await req.json();
@@ -9,7 +9,7 @@ export const POST = withAuth(async (_session, req) => {
 
   return streamObject({
     model: openai("gpt-4o"),
-    schema: travelItinerarySchema,
+    schema: travelItineraryResponseSchema,
     prompt: systemPrompt,
   }).toTextStreamResponse();
 }); 

@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Build UIs using the ShadCN primities stored in `src/componets/ui`. 
+Refrain from adding too much aextra style on top of these, I want to keep the UI consistent so styles are applied on component level and in tailwind config.
+You can add tailwind classes for layout as fit.

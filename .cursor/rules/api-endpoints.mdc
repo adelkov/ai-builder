@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Create API endpoints with the `withAuth` custom HOF by default.
+Do all AI-related things as documented in @https://ai-sdk.dev/docs/introduction.
+If asked specifically to add rate limiting when creating an endpoint use the `withRateLimit` custom HOF.
+

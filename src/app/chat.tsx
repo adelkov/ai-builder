@@ -1,7 +1,6 @@
 "use client";
 
 import { ChatMessage } from "~/components/chat-message";
-import { SignInModal } from "~/components/sign-in-modal";
 
 import { useChat } from "@ai-sdk/react";
 import { Square } from "lucide-react";

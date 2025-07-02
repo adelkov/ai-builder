@@ -30,9 +30,22 @@ export default async function RootLayout({
           <div className="flex w-64 flex-col border-r border-gray-700 bg-gray-900 justify-between">
             <div className="p-4">
               <h2 className="text-sm font-semibold text-gray-400 mb-4">Navigation</h2>
-              <Link href="/" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 mb-2">Chat</Link>
-              <Link href="/generate-movie" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 mb-2">🍿 Generate Movie</Link>
-              <Link href="/generate-itinerary" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800">✈️ Generate Itinerary</Link>
+              <Link href="/" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 mb-2 flex items-center gap-2">
+                <span className="text-xl">💬</span>
+                Chat
+              </Link>
+              <Link href="/generate-movie" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 mb-2 flex items-center gap-2">
+                <span className="text-xl">🍿</span>
+                Generate Movie
+              </Link>
+              <Link href="/generate-itinerary" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 flex items-center gap-2">
+                <span className="text-xl">✈️</span>
+                Generate Itinerary
+              </Link>
+              <Link href="/find-property" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 flex items-center gap-2">
+                <span className="text-xl">📍</span>
+                Find Property
+              </Link>
             </div>
             <div className="p-4 flex flex-col items-center gap-2">
               {isAdmin && (

@@ -33,6 +33,7 @@ export const users = createTable("user", {
   }).default(sql`CURRENT_TIMESTAMP`),
   image: varchar("image", { length: 255 }),
   isAdmin: boolean("is_admin").notNull().default(false),
+  tokens: integer("tokens").notNull().default(1),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({

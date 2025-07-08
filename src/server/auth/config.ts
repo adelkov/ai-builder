@@ -22,6 +22,7 @@ declare module "next-auth" {
     user: {
       id: string;
       isAdmin: boolean;
+      tokens: number;
     } & DefaultSession["user"];
   }
 
@@ -65,6 +66,7 @@ export const authConfig = {
         ...session.user,
         id: user.id,
         isAdmin: (user as DB.User).isAdmin,
+        tokens: (user as DB.User).tokens,
       },
     }),
   },

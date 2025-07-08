@@ -3,11 +3,17 @@
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { useCompletion } from "@ai-sdk/react";
+import { useSession } from "next-auth/react";
 
 export default function HomePage() {
+  const { update } = useSession();
   const { completion, input, handleInputChange, handleSubmit, isLoading, stop, setInput, setCompletion } = useCompletion({
     api: "/api/find-address",
+    onFinish:  () => {
+      void update();
+    },
   });
+  
 
   // Reset function to allow another search
   function handleReset() {

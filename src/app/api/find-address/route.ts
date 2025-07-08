@@ -2,6 +2,9 @@ import { openai } from "@ai-sdk/openai";
 import { streamText } from "ai";
 import { withAuth, withRateLimit } from "../../../utils";
 import { z } from "zod";
+import { db } from "~/server/db";
+import { users } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -10,7 +13,10 @@ export const POST = withAuth(
   withRateLimit(
     async (session, req) => {
       const { prompt } = (await req.json()) as { prompt: string };
-      console.log("find-address", prompt);
+      if (session.user.tokens <= 0) {
+        return new Response("No tokens", { status: 402 });
+      }
+      await db.update(users).set({ tokens: session.user.tokens - 1 }).where(eq(users.id, session.user.id));
       const result = streamText({
         model: openai("gpt-4o"),
         system: `

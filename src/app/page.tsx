@@ -30,9 +30,8 @@ export default async function HomePage() {
           <Input
             type="url"
             placeholder="https://ingatlan.com/1234567890"
-            className="min-w-0 flex-1 rounded-xl border-none bg-white/80 px-6 py-4 text-lg shadow-lg placeholder:text-gray-500 focus:bg-white focus:placeholder:text-gray-400"
+            className="min-w-0 flex-1 rounded-xl border-none bg-white/60 px-6 py-4 text-lg shadow-lg placeholder:text-gray-500 focus:bg-white/80 focus:placeholder:text-gray-400"
             required
-            disabled
           />
           <Button
             type="submit"

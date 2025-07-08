@@ -23,7 +23,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
+      <body className="bg-pink-500">
         <div className="flex h-screen w-screen flex-col bg-gray-950">
           {/* Sidebar */}
           <div className="fixed top-0 left-0 z-50 flex w-screen flex-row justify-between border-r border-gray-700 ">

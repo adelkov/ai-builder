@@ -2,7 +2,6 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import Link from "next/link";
 import { AuthButton } from "../components/auth-button.tsx";
 import { Badge } from "../components/ui/badge";
 import { Crown } from "lucide-react";

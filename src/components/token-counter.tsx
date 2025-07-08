@@ -7,6 +7,12 @@ import { useSession } from "next-auth/react";
 export function TokenCounter() {
   const { data: session } = useSession();
   const tokens = session?.user?.tokens;
+
+
+  if (!session?.user) {
+    return null;
+  }
+
   return (
     <Badge
       variant="secondary"

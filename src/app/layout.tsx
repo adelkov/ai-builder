@@ -21,7 +21,6 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const session = await auth();
   const isAuthenticated = !!session?.user;
-  const tokens = session?.user?.tokens;
   const isAdmin = session?.user?.isAdmin;
   const userImage = session?.user?.image ?? null;
 

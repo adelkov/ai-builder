@@ -26,7 +26,7 @@ export default async function RootLayout({
       <body>
         <div className="flex h-screen w-screen flex-col bg-gray-950">
           {/* Sidebar */}
-          <div className="flex w-screen flex-row justify-between border-r border-gray-700 bg-gray-900">
+          <div className="fixed top-0 left-0 z-50 flex w-screen flex-row justify-between border-r border-gray-700 ">
             <div className="p-4">
               {isAdmin && (
                 <Badge

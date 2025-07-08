@@ -24,37 +24,25 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        
-        <div className="flex h-screen bg-gray-950">
+        <div className="flex h-screen w-screen flex-col bg-gray-950">
           {/* Sidebar */}
-          <div className="flex w-64 flex-col border-r border-gray-700 bg-gray-900 justify-between">
+          <div className="flex w-screen flex-row justify-between border-r border-gray-700 bg-gray-900">
             <div className="p-4">
-              <h2 className="text-sm font-semibold text-gray-400 mb-4">Navigation</h2>
-              <Link href="/" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 mb-2 flex items-center gap-2">
-                <span className="text-xl">💬</span>
-                Chat
-              </Link>
-              <Link href="/generate-movie" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 mb-2 flex items-center gap-2">
-                <span className="text-xl">🍿</span>
-                Generate Movie
-              </Link>
-              <Link href="/generate-itinerary" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 flex items-center gap-2">
-                <span className="text-xl">✈️</span>
-                Generate Itinerary
-              </Link>
-              <Link href="/find-property" className="block rounded-lg p-3 text-left text-sm text-gray-300 hover:bg-gray-800 flex items-center gap-2">
-                <span className="text-xl">📍</span>
-                Find Property
-              </Link>
-            </div>
-            <div className="p-4 flex flex-col items-center gap-2">
               {isAdmin && (
-                <Badge variant="secondary" className="flex items-center gap-1 px-3 py-1 text-xs font-bold text-yellow-500 bg-yellow-100 border-yellow-300">
+                <Badge
+                  variant="secondary"
+                  className="flex items-center gap-1 border-yellow-300 bg-yellow-100 px-3 py-1 text-xs font-bold text-yellow-500"
+                >
                   <Crown className="size-4 text-yellow-500" />
                   Admin
                 </Badge>
               )}
-              <AuthButton isAuthenticated={isAuthenticated} userImage={userImage} />
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4">
+              <AuthButton
+                isAuthenticated={isAuthenticated}
+                userImage={userImage}
+              />
             </div>
           </div>
           <main className="flex-1 overflow-y-auto">{children}</main>
